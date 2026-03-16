@@ -1185,6 +1185,71 @@ color:white;
 border-top:1px solid #1e293b;
 }
 
+/* MOBILE RESPONSIVE */
+
+@media (max-width: 900px){
+
+.sidebar{
+width:200px;
+}
+
+.main{
+margin-left:200px;
+}
+
+.home{
+flex-direction:column;
+text-align:center;
+gap:30px;
+}
+
+.home-text{
+margin-top:20px;
+}
+
+.home-text h1{
+font-size:38px;
+}
+
+.home-text h2{
+font-size:22px;
+}
+
+.home-text p{
+font-size:16px;
+}
+
+.image-container img{
+width:250px;
+height:auto;
+}
+
+.image-container::before,
+.image-container::after{
+display:none;
+}
+
+section{
+padding:60px 25px;
+}
+
+}
+
+@media (max-width:700px){
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+border-right:none;
+}
+
+.main{
+margin-left:0;
+}
+
+}
+
 </style>
 
 </head>
