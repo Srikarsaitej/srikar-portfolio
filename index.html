@@ -1189,19 +1189,40 @@ border-top:1px solid #1e293b;
 
 @media (max-width: 900px){
 
+/* Sidebar hidden by default */
+
 .sidebar{
-width:200px;
+position:fixed;
+left:-250px;
+top:0;
+width:250px;
+height:100vh;
+transition:0.4s;
+z-index:999;
 }
 
-.main{
-margin-left:200px;
+/* When menu opens */
+
+.sidebar.active{
+left:0;
 }
+
+/* Main content full screen */
+
+.main{
+margin-left:0;
+width:100%;
+}
+
+/* Stack home section */
 
 .home{
 flex-direction:column;
 text-align:center;
 gap:30px;
 }
+
+/* Text adjustments */
 
 .home-text{
 margin-top:20px;
@@ -1219,15 +1240,21 @@ font-size:22px;
 font-size:16px;
 }
 
+/* Image resize */
+
 .image-container img{
 width:250px;
 height:auto;
 }
 
+/* Remove decorative corners */
+
 .image-container::before,
 .image-container::after{
 display:none;
 }
+
+/* Section padding */
 
 section{
 padding:60px 25px;
@@ -1235,19 +1262,28 @@ padding:60px 25px;
 
 }
 
-@media (max-width:700px){
-
-.sidebar{
-position:relative;
-width:100%;
-height:auto;
-border-right:none;
+.menu-btn{
+position:fixed;
+top:20px;
+left:20px;
+font-size:22px;
+background:#ff3b3b;
+color:white;
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+cursor:pointer;
+z-index:1000;
+display:none;
 }
 
-.main{
-margin-left:0;
+@media(max-width:900px){
+.menu-btn{
+display:flex;
 }
-
 }
 
 </style>
@@ -1256,6 +1292,10 @@ margin-left:0;
 
 <body>
 
+<div class="menu-btn">
+<i class="fa-solid fa-bars"></i>
+</div>
+    
 <div class="sidebar">
 
 <div class="logo">Srik<span>ar</span></div>
@@ -2034,7 +2074,15 @@ localStorage.setItem("theme","light");
 
 </script>
 
+<!-- MOBILE MENU SCRIPT -->
+<script>
+const menuBtn = document.querySelector(".menu-btn");
+const sidebar = document.querySelector(".sidebar");
 
+menuBtn.addEventListener("click", () => {
+sidebar.classList.toggle("active");
+});
+</script>
 
 </body>
 </html>
